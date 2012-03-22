@@ -17,7 +17,7 @@ The directory structure and library import files are set up to work in Eclipse.
 
 ### Package
 
-    edu.jsu.leathrum.audio
+    edu.jsu.leathrum.audio.shared
 
 ### Audio
 
