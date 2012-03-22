@@ -72,10 +72,10 @@ methods:
 
 WebKit compatibility is provided through a JavaScript library
 `moz2wk-audio.js` which is found in the
-`Audio/src/edu/jsu/leathrum/audio/public`
+`Audio/src/edu/jsu/leathrum/audio/shared/public`
 directory and is included automatically in any project importing the
 library through the `Audio.gwt.xml`
-file in the `Audio/src/edu/jsu/leathrum/audio` directory.
+file in the `Audio/src/edu/jsu/leathrum/audio/shared` directory.
 This JavaScript library provides implementations of the Mozilla Audio Data API
 methods and properties (attached to the WebKit `HTMLAudioElement` object)
 when in a WebKit browser environment, and provides empty implementations
