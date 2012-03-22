@@ -21,7 +21,7 @@ The directory structure and library import files are set up to work in Eclipse.
 
 ### Audio
 
-    public class Audio extends con.google.media.client.Audio
+    public class Audio extends com.google.media.client.Audio
       implements HasAudioAvailableHandlers  // <-- for reference implementation
 
 constructor is protected  
