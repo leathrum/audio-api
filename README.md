@@ -1,6 +1,6 @@
 # GWT Audio API Wrapper for Mozilla Audio Data API
 
-This GWT library provides objects, interfaces, and methods to implement the
+This GWT library provides classes, interfaces, and methods to implement the
 [Mozilla Audio Data API](https://wiki.mozilla.org/Audio_Data_API),
 and provides compatibility also with the WebKit/W3C
 [Web Audio API](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html) (but does not provide a full implementation of that
