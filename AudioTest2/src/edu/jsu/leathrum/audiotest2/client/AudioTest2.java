@@ -34,13 +34,19 @@ public class AudioTest2 implements EntryPoint, ClickHandler {
     }
 	
 	private float twopi = (float) (2.0f * Math.PI);
+	private int bufferoffset = 0;
 			
 	private void sound() {
-		//int written = 0;
-        for (int i = 0; i < buffer.length; i++)
+		int written = 0, i=0;
+        for (i = bufferoffset; i < buffer.length; i++)
         	buffer[i] = (float) Math.sin(twopi * frequency * x++ / sampleRate );
-		//written = 
-        audio.writeAudio(buffer);
+		written = audio.writeAudio(buffer);
+		if (buffer.length > written) {
+		    bufferoffset = buffer.length - written;
+		    for (i = 0; i < bufferoffset; i++) buffer[i] = buffer[written+i];
+		}
+		else bufferoffset = 0;
+		while (x > sampleRate) x -= sampleRate;
 	}
 	
 	private boolean playing = false;
@@ -51,7 +57,7 @@ public class AudioTest2 implements EntryPoint, ClickHandler {
 	}
 	
 	public void start() { 
-		x = 0;
+		x = bufferoffset = 0;
 		audio.connect();
 		animate();
         playButton.getElement().getStyle().setColor("red");
