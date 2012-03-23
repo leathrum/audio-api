@@ -11,34 +11,33 @@ Data API are included here:  `Audio.connect()` and `Audio.disconnect()`.
 The `AudioText2` code provides a working example of a simple tone
 generator, which has been tested to work in both Firefox and Chromium.
 This just shows a "Play" button which triggers a tone at 440Hz (A above middle
-C in standard tuning).
+C in standard tuning).  The code can be seen in action in 
+[a post on my Wordpress](http://cs.jsu.edu/wordpress/?p=442).
 
 The directory structure and library import files are set up to work in Eclipse.
 
 ### Package
 
-    edu.jsu.leathrum.audio
+    edu.jsu.leathrum.audio.shared
 
 ### Audio
 
-    public class Audio extends con.google.media.client.Audio
-      implements HasAudioAvailableHandlers  // <-- for reference implementation
+    public class Audio extends com.google.media.client.Audio
+      implements HasAudioAvailableHandlers           // <-- for reference implementation
 
 constructor is protected  
 methods:
 
-    public static Audio createIfSupported() // overrides
-    public void setup(int channels, int sampleRate) 
-                                            // mozSetup(channels, sampleRate)
-    public void writeAudio(float[] buffer)  // mozWriteAudio(buffer)
-    public int currentSampleOffset()        // mozCurrentSampleOffset()
-    public int getChannels()                // returns mozChannels
-    public int getSampleRate()              // returns mozSampleRate
-    public int getFrameBufferLength()       // returns mozFrameBufferLength
-    public void connect()                   // for Webkit compatibility
-    public void disconnect()                // for Webkit compatibility
-    public HandlerRegistration              // reference implementation
-        addAudioAvalableHandler(AudioAvailableHandler h) 
+    public static Audio createIfSupported()          // overrides
+    public void setup(int channels, int sampleRate)  // mozSetup(channels, sampleRate)
+    public void writeAudio(float[] buffer)           // mozWriteAudio(buffer)
+    public int currentSampleOffset()                 // mozCurrentSampleOffset()
+    public int getChannels()                         // returns mozChannels
+    public int getSampleRate()                       // returns mozSampleRate
+    public int getFrameBufferLength()                // returns mozFrameBufferLength
+    public void connect()                            // for Webkit compatibility
+    public void disconnect()                         // for Webkit compatibility
+    public HandlerRegistration addAudioAvalableHandler(AudioAvailableHandler h) // reference implementation
 
 ### AudioAvailableEvent
 
@@ -47,9 +46,9 @@ methods:
 uses constructor from super  
 methods:
 
-    public DomEvent.Type<AudioAvailableHandler> getType()
-    public DomEvent.Type<AudioAvailableHandler> getType()
-    protected void dispatch(AudioAvailableHandler handler)
+    public DomEvent.Type<AudioAvailableHandler> getType()   // overrides
+    public DomEvent.Type<AudioAvailableHandler> getType()   // overrides
+    protected void dispatch(AudioAvailableHandler handler)  // overrides
 
 ### AudioAvailableHandler
 
