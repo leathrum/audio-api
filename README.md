@@ -47,7 +47,7 @@ uses constructor from super
 methods:
 
     public DomEvent.Type<AudioAvailableHandler> getType()   // overrides
-    public DomEvent.Type<AudioAvailableHandler> getType()   // overrides
+    public DomEvent.Type<AudioAvailableHandler> getAvailableType()   // overrides
     protected void dispatch(AudioAvailableHandler handler)  // overrides
 
 ### AudioAvailableHandler
